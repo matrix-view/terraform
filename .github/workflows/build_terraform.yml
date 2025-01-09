@@ -23,7 +23,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-2
+          aws-region: eu-west-3
       - name: Initialise project and view terraform plan
         run: |
           cd terraform 
@@ -47,10 +47,10 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-2
+          aws-region: eu-west-3
       - name: Initialise project and deploy terraform
         run: |
           cd terraform
           terraform fmt
           terraform init
-          terraform apply
+          terraform apply -auto-approve
